@@ -250,13 +250,13 @@ function openImageModal(imgSrc, title) {
     modal.className = 'modal-overlay hidden';
     modal.setAttribute('onclick', "closeModalOnOverlay(event, 'modal-image-preview')");
     modal.innerHTML = `
-      <div class="modal-card" style="max-width: 1400px; width: 96vw; padding: 20px 24px; background: var(--colors-surface-card); border-radius: var(--rounded-lg); border: 1px solid var(--colors-hairline); box-shadow: 0 20px 60px rgba(0,0,0,0.45);">
-        <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--colors-hairline-soft); padding-bottom: 10px;">
-          <h3 id="modal-image-title" style="margin: 0; font-size: 18px; font-weight: 700; color: var(--colors-ink);">이미지 크게 보기</h3>
-          <button class="btn-close-modal" onclick="closeModal('modal-image-preview')" style="background: transparent; border: none; font-size: 28px; cursor: pointer; color: var(--colors-muted); font-weight: 700; line-height: 1;">&times;</button>
+      <div class="modal-card" style="max-width: 900px; width: 92%; padding: 24px; background: var(--colors-surface-card); border-radius: var(--rounded-lg); border: 1px solid var(--colors-hairline); box-shadow: 0 12px 36px rgba(0,0,0,0.25);">
+        <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--colors-hairline-soft); padding-bottom: 12px;">
+          <h3 id="modal-image-title" style="margin: 0; font-size: 17px; font-weight: 700; color: var(--colors-ink);">이미지 확대 보기</h3>
+          <button class="btn-close-modal" onclick="closeModal('modal-image-preview')" style="background: transparent; border: none; font-size: 24px; cursor: pointer; color: var(--colors-muted); font-weight: 700; line-height: 1;">&times;</button>
         </div>
-        <div style="text-align: center; overflow: auto; border-radius: var(--rounded-md); background: #0a0a09; padding: 16px; display: flex; justify-content: center; align-items: center; min-height: 75vh;">
-          <img id="modal-image-img" src="" alt="확대 이미지" style="max-width: 100%; max-height: 88vh; width: auto; height: auto; object-fit: contain; border-radius: var(--rounded-sm); box-shadow: 0 8px 32px rgba(0,0,0,0.6);">
+        <div style="text-align: center; overflow: hidden; border-radius: var(--rounded-md); background: #000; padding: 12px;">
+          <img id="modal-image-img" src="" alt="확대 이미지" style="max-width: 100%; max-height: 75vh; object-fit: contain; border-radius: var(--rounded-sm);">
         </div>
       </div>
     `;
@@ -266,7 +266,7 @@ function openImageModal(imgSrc, title) {
   const imgElem = modal.querySelector('#modal-image-img');
   const titleElem = modal.querySelector('#modal-image-title');
   if (imgElem) imgElem.src = imgSrc;
-  if (titleElem) titleElem.textContent = title || '이미지 크게 보기';
+  if (titleElem) titleElem.textContent = title || '이미지 확대 보기';
   
   modal.classList.remove('hidden');
 }

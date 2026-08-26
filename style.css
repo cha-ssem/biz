@@ -1156,7 +1156,8 @@ code {
   .download-grid,
   .video-grid,
   .copyright-grid,
-  .cinemastudio-item > div {
+  .cinemastudio-item > div,
+  .skill-register-container {
     grid-template-columns: 1fr !important;
   }
 
