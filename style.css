@@ -430,6 +430,13 @@ body {
   margin-top: 16px;
 }
 
+.curriculum-steps-container-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 16px;
+}
+
 .curriculum-step-card {
   background-color: var(--colors-canvas);
   border: 1px solid var(--colors-hairline);
@@ -606,9 +613,10 @@ body {
 }
 
 .prompt-card {
+  position: relative;
   background-color: var(--colors-surface-card);
   border-radius: var(--rounded-md);
-  padding: 20px 22px;
+  padding: 20px 22px 32px 22px;
   border: 1px solid var(--colors-hairline);
 }
 
@@ -633,6 +641,56 @@ body {
   border: 1px solid var(--colors-hairline-soft);
   line-height: 1.6;
   word-break: break-word;
+}
+
+.prompt-card-body.collapsible {
+  max-height: 90px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.prompt-card-body.collapsible::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(transparent, var(--colors-canvas));
+  pointer-events: none;
+}
+
+.prompt-card-body.collapsible.expanded {
+  max-height: 2000px;
+}
+
+.prompt-card-body.collapsible.expanded::after {
+  display: none;
+}
+
+.btn-toggle-expand {
+  background: transparent;
+  border: none;
+  color: var(--colors-primary);
+  padding: 0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  right: 24px;
+  bottom: 10px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  transition: opacity 0.2s ease;
+}
+
+.btn-toggle-expand:hover {
+  background: transparent;
+  text-decoration: underline;
+  opacity: 0.85;
 }
 
 /* Feature Cards Grid */
@@ -712,13 +770,12 @@ body {
 .btn-ext-link {
   display: inline-flex;
   align-items: center;
-  background-color: rgba(204, 120, 92, 0.15);
+  background: transparent;
   color: var(--colors-primary);
-  border: 1px solid rgba(204, 120, 92, 0.3);
-  font-size: 12px;
+  border: none;
+  font-size: 13px;
   font-weight: 600;
-  padding: 6px 12px;
-  border-radius: var(--rounded-sm);
+  padding: 0 4px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -726,9 +783,9 @@ body {
 }
 
 .btn-ext-link:hover {
-  background-color: var(--colors-primary);
-  color: var(--colors-on-primary);
-  border-color: var(--colors-primary);
+  background: transparent;
+  color: var(--colors-primary-active);
+  text-decoration: underline;
 }
 
 .code-header .btn-ext-link {
@@ -1098,8 +1155,9 @@ code {
   .feature-grid,
   .download-grid,
   .video-grid,
-  .copyright-grid {
-    grid-template-columns: 1fr;
+  .copyright-grid,
+  .cinemastudio-item > div {
+    grid-template-columns: 1fr !important;
   }
 
   .nav-links {

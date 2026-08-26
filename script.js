@@ -145,6 +145,24 @@ function copyCode(elementId) {
 }
 
 /**
+ * Toggle Collapsible Prompt Card Expansion
+ */
+function toggleExpandPrompt(btn) {
+  const card = btn.closest('.prompt-card');
+  if (!card) return;
+  const cardBody = card.querySelector('.prompt-card-body');
+  if (!cardBody) return;
+
+  if (cardBody.classList.contains('expanded')) {
+    cardBody.classList.remove('expanded');
+    btn.innerHTML = '더보기 🔽';
+  } else {
+    cardBody.classList.add('expanded');
+    btn.innerHTML = '접기 🔼';
+  }
+}
+
+/**
  * Generic Copy Text to Clipboard & Show Toast Notification
  */
 function copyText(text) {
@@ -219,4 +237,36 @@ function triggerDownload(urlOrData, filename) {
       document.body.removeChild(a);
     }
   }, 300);
+}
+
+/**
+ * Image Enlargement Modal Preview
+ */
+function openImageModal(imgSrc, title) {
+  let modal = document.getElementById('modal-image-preview');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'modal-image-preview';
+    modal.className = 'modal-overlay hidden';
+    modal.setAttribute('onclick', "closeModalOnOverlay(event, 'modal-image-preview')");
+    modal.innerHTML = `
+      <div class="modal-card" style="max-width: 1400px; width: 96vw; padding: 20px 24px; background: var(--colors-surface-card); border-radius: var(--rounded-lg); border: 1px solid var(--colors-hairline); box-shadow: 0 20px 60px rgba(0,0,0,0.45);">
+        <div class="modal-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 1px solid var(--colors-hairline-soft); padding-bottom: 10px;">
+          <h3 id="modal-image-title" style="margin: 0; font-size: 18px; font-weight: 700; color: var(--colors-ink);">이미지 크게 보기</h3>
+          <button class="btn-close-modal" onclick="closeModal('modal-image-preview')" style="background: transparent; border: none; font-size: 28px; cursor: pointer; color: var(--colors-muted); font-weight: 700; line-height: 1;">&times;</button>
+        </div>
+        <div style="text-align: center; overflow: auto; border-radius: var(--rounded-md); background: #0a0a09; padding: 16px; display: flex; justify-content: center; align-items: center; min-height: 75vh;">
+          <img id="modal-image-img" src="" alt="확대 이미지" style="max-width: 100%; max-height: 88vh; width: auto; height: auto; object-fit: contain; border-radius: var(--rounded-sm); box-shadow: 0 8px 32px rgba(0,0,0,0.6);">
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+  
+  const imgElem = modal.querySelector('#modal-image-img');
+  const titleElem = modal.querySelector('#modal-image-title');
+  if (imgElem) imgElem.src = imgSrc;
+  if (titleElem) titleElem.textContent = title || '이미지 크게 보기';
+  
+  modal.classList.remove('hidden');
 }
