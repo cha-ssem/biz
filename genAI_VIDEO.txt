@@ -1,0 +1,43 @@
+생성형 AI를 활용한 영상제작 과정
+- 시간 : 3시간
+- 대상 : 벤처기업 및 산학협력 기업 대표 및 직원
+- 핵심내용 : 클로드와 힉스필드를 활용하여 회사 홍보 영상 제작
+
+
+#### 강의개요. 영상 제작관련 전체 과정 훑어보기
+
+- 영상 제작 프로세스 보기(워크플로우) : 영상 제작 워크시트 내용 및 스토리보드 예시 보기
+- 생성형 AI를 활용한 영상 결과물 미리보기
+- 영상의 4요소와 각 요소별 서비스 특징 정리하기
+
+#### 모듈 1. 이미지 제작하기
+
+- (chatGPT활용) 캐릭터 시트 제작 및 활용
+- (chatGPT활용) 사진 속 아이템(요소) 추출 및 추출된 아이템 장착시키기
+- (NanoBanana활용) 사진을 3D캐릭터로 생성하기 및 활용
+- (chatGPT활용) 제품 광고 관련 명령어의 사용
+
+#### 모듈 2. 영상 제작하기
+
+- 영상 제작 서비스별 비교
+- higgsfield 서비스의 크레딧 사용 유의사항과 효율적인 영상 제작의 전략
+- 클로드에 higgsfield MCP 설정 및 사용해보기
+- 클로드에서 Seedance 2.0 스킬 등록 및 사용법
+- higgsfield의 Cinema Studio 사용하기
+- 이미지 및 영상 Upscaling
+
+#### 모듈 3. 기타 요소
+
+- 텍스트 또는 자막 : Capcut, Vrew 외 다수
+- 배경음악 또는 내레이션 : Youtube 오디오 라이브러리, Vrew, Adobe Firefly 외 다수
+- 저작권 챙겨보기
+
+#### 참고 영상
+
+- higgsfield 사용 1: https://www.youtube.com/watch?v=zv0gHwKQT8M&t=119s
+- higgsfield 사용 2 : https://youtu.be/rlIvdtcjmUg?si=USzDkQDV6vFKpq6x
+- Google Flow 사용 1 : https://youtu.be/smiAJzD0O-o?si=3K-zWioed_v7m35u
+- Google Flow 사용 2 : https://youtu.be/vbW6s5J5ZbY?si=UUB5mAEmCXzJvMbp
+
+
+
