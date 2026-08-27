@@ -195,6 +195,22 @@ function showToast(message) {
 function forceDownload(event, url, filename) {
   if (event) event.preventDefault();
 
+  // 구글 드라이브 링크인 경우 직다운로드 URL로 변환하여 다운로드 실행
+  if (url.includes('drive.google.com')) {
+    let directUrl = url;
+    const fileIdMatch = url.match(/\/file\/d\/([^\/]+)/);
+    if (fileIdMatch && fileIdMatch[1]) {
+      directUrl = 'https://drive.google.com/uc?export=download&id=' + fileIdMatch[1];
+    } else if (!url.includes('export=download')) {
+      const idParamMatch = url.match(/[?&]id=([^&]+)/);
+      if (idParamMatch && idParamMatch[1]) {
+        directUrl = 'https://drive.google.com/uc?export=download&id=' + idParamMatch[1];
+      }
+    }
+    window.location.href = directUrl;
+    return;
+  }
+
   // If INVOICE_PDF_BASE64 is defined and target file is invoice_form.pdf, use octet-stream Data URL to guarantee direct file save without PDF viewer
   if (typeof INVOICE_PDF_BASE64 !== 'undefined' && (url.includes('invoice_form.pdf') || filename.includes('견적서양식.pdf'))) {
     triggerDownload(INVOICE_PDF_BASE64, filename);
