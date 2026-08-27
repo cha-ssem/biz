@@ -563,6 +563,42 @@ body {
   font-weight: 600;
 }
 
+.badge-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.badge-header-row .badge-two-line-coral {
+  margin-bottom: 0;
+}
+
+.btn-promptories {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--colors-primary), #e88a6d);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--rounded-pill);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(204, 120, 92, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-promptories:hover {
+  background: linear-gradient(135deg, var(--colors-primary-active), var(--colors-primary));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(204, 120, 92, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .margin-top-sm {
   margin-top: 6px;
 }
